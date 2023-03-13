@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int min=INT_MAX;
+        int max = 0;
+        int profitToday = 0;
+        int profit = 0;
+
+        for(int i=0; i<size(prices);i++)
+        {
+            if(prices.at(i)<min){
+                min = prices.at(i);
+                max = min;
+            }else if(prices.at(i)>max){
+                max = prices.at(i);
+            }
+            profitToday = max - min;
+            if(profitToday>profit){
+                profit=profitToday;
+            }
+        }
+        return profit;
+
+    }
+};
